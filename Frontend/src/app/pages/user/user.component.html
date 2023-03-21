@@ -1,0 +1,32 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title">Edit Profile</h5>
+        </div>
+        <div class=" card-body">
+          <form>
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label> Change email </label>
+                  <input class=" form-control" disabled id="email" name="email" placeholder="Username" type="text"
+                    [(ngModel)]="trustcalc.email" value="michael23" />
+                </div>
+              </div>
+              <div class=" col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label> Password </label>
+                  <input class=" form-control" id="password" name="password" placeholder="Last Name" type="password"
+                    [(ngModel)]="trustcalc.password" value="Andrew" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class=" card-footer">
+          <button class=" btn btn-fill btn-danger" type="submit" (click)="saveUser()">Save</button>
+        </div>
+      </div>
+    </div>

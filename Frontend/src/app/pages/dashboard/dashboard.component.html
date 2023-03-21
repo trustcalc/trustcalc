@@ -1,0 +1,516 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-12">
+      <div class="card" style="background: #230b1f">
+        <div class="row">
+          <h6 style="padding-left: 25px">Description</h6>
+          <div class="col-md-12 row" *ngFor="let item of descriptions">
+            <p style="padding-left: 15px; font-size: 15px; margin-top: 0; margin-bottom: 3px;">{{item.title}}</p>
+            <p style="padding-left: 15px; font-size: 12px; margin-top: 0; margin-bottom: 3px;">{{item.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <h3>Supervised, Trustscore: </h3>
+      <div class=" card card-chart" style="background: #230B1F;">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-12 text-left">
+              <h5 class=" card-category">Pillars Scores</h5>
+              <h2 class=" card-title" [style.color]="pickHex(trustcalc.fairness_score)">Fairness Score: {{
+                trustcalc.fairness_score }} </h2>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Underfitting:</label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.underfitting)"> {{ trustcalc.underfitting }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Overfitting: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.overfitting)"> {{ trustcalc.overfitting }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Statistical Parity Difference: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.statistical_parity_difference)"> {{
+                trustcalc.statistical_parity_difference }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Equal Opportunity Difference:
+              </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.equal_opportunity_difference)"> {{
+                trustcalc.equal_opportunity_difference }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Average Odds Difference:
+              </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.average_odds_difference)"> {{
+                trustcalc.average_odds_difference }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Disparate Impact: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.disparate_impact)"> {{ trustcalc.disparate_impact
+                }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Class Balance: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.class_balance)"> {{ trustcalc.class_balance }}
+              </label>
+            </label>
+          </div>
+          <div class=" mx-3 row">
+            <h4 class=" card-title" [style.color]="pickHex(trustcalc.explainability_score)">Explainability Score: {{
+              trustcalc.explainability_score }} </h4>
+          </div>
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Algorithm Class: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.algorithm_class)"> {{ trustcalc.algorithm_class
+                }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Correlated Features: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.correlated_features)"> {{
+                trustcalc.correlated_features }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Model Size: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.model_size)"> {{ trustcalc.model_size }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Feature Relevance: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.feature_relevance)"> {{
+                trustcalc.feature_relevance
+                }}
+              </label>
+            </label>
+          </div>
+          <div class=" mx-3 row">
+            <h4 class=" card-title" [style.color]="pickHex(trustcalc.methodology_score)">Methodology Score: {{
+              trustcalc.methodology_score }} </h4>
+          </div>
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Normalization: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.normalization)"> {{ trustcalc.normalization }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Missing Data: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.missing_data)"> {{ trustcalc.missing_data }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Regularization: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.regularization)"> {{ trustcalc.regularization }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Train Test Split: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.train_test_split)"> {{ trustcalc.train_test_split
+                }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Factsheet Completeness: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.factsheet_completeness)"> {{
+                trustcalc.factsheet_completeness }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <h4 class="card-title" [style.color]="pickHex(trustcalc.robustness_score)">Robustness Score: {{
+              trustcalc.robustness_score }} </h4>
+          </div>
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Confidence Score: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.confidence_score)"> {{ trustcalc.confidence_score
+                }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Clique Method: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.clique_method)"> {{ trustcalc.clique_method }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Loss Sensitivity: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.loss_sensitivity)"> {{ trustcalc.loss_sensitivity
+                }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Clever Score: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.clever_score)"> {{ trustcalc.clever_score }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Er Fast Gradient Attack: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.er_fast_gradient_attack)"> {{
+                trustcalc.er_fast_gradient_attack }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Er Carlini Wagner Attack: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.er_carlini_wagner_attack)"> {{
+                trustcalc.er_carlini_wagner_attack
+                }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Er Deepfool Attack: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.er_deepfool_attack)"> {{
+                trustcalc.er_deepfool_attack }}
+              </label>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3>Unsupervised, Trustscore: </h3>
+  <div class=" row">
+    <div class=" col-12">
+      <div class=" card card-chart" style="background: #230B1F;">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-6 text-left">
+              <h5 class=" card-category">Pillars Scores</h5>
+              <h2 class=" card-title" [style.color]="pickHex(trustcalc.unsupervised_fairness_score)">Fairness Score: {{
+                trustcalc.unsupervised_fairness_score }} </h2>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Underfitting: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_underfitting)"> {{
+                trustcalc.unsupervised_underfitting
+                }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Overfitting: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_overfitting)"> {{
+                trustcalc.unsupervised_overfitting
+                }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Statistical Parity Difference: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_statistical_parity_difference)"> {{
+                trustcalc.unsupervised_statistical_parity_difference }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Disparate Impact: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_disparate_impact)"> {{
+                trustcalc.unsupervised_disparate_impact }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <h4 class=" card-title" [style.color]="pickHex(trustcalc.unsupervised_explainability_score)">Explainability
+              Score: {{ trustcalc.unsupervised_explainability_score }} </h4>
+          </div>
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Correlated Features: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_correlated_features)"> {{
+                trustcalc.unsupervised_correlated_features }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Model Size: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_model_size)"> {{
+                trustcalc.unsupervised_model_size }}
+              </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9"> Permutation Importance Score: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_permutation_importance)"> {{
+                trustcalc.unsupervised_permutation_importance }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <h4 class=" card-title" [style.color]="pickHex(trustcalc.unsupervised_methodology_score)">Methodology Score:
+              {{ trustcalc.unsupervised_methodology_score }} </h4>
+          </div>
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Normalization: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_normalization)"> {{
+                trustcalc.unsupervised_normalization
+                }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Missing Data: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_missing_data)"> {{
+                trustcalc.unsupervised_missing_data
+                }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Regularization: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_regularization)"> {{
+                trustcalc.unsupervised_regularization }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Train Test Split: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_train_test_split)"> {{
+                trustcalc.unsupervised_train_test_split }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Factsheet Completeness: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_factsheet_completeness)"> {{
+                trustcalc.unsupervised_factsheet_completeness }} </label>
+            </label>
+          </div>
+          <div class="mx-3 row">
+            <h4 class="card-title" [style.color]="pickHex(trustcalc.unsupervised_robustness_score)">Robustness Score: {{
+              trustcalc.unsupervised_robustness_score }} </h4>
+          </div>
+
+          <div class="mx-3 row">
+            <h6>Metrics Scores</h6>
+          </div>
+
+          <div class="mx-3 row">
+            <label class="col-md-12 row">
+              <label class="col-md-9" align="left"> Clever Score: </label>
+              <label class="col-md-3" [style.color]="pickHex(trustcalc.unsupervised_clever_score)"> {{
+                trustcalc.unsupervised_clever_score
+                }} </label>
+            </label>
+          </div>
+          <!-- <div class="mx-3 row">
+                      <label class="col-md-12 row"> 
+                        <label class="col-md-9" align="left"> Er Fast Gradient Attack:  </label> 
+                        <label class="col-md-3" style="text-align: right; color: #FF0202;"> {{ trustcalc.er_fast_gradient_attack }} </label> 
+                      </label>
+                    </div>
+                    <div class="mx-3 row">
+                      <label class="col-md-12 row"> 
+                        <label class="col-md-9" align="left"> Er Carlini Wagner Attack:  </label> 
+                        <label class="col-md-3" style="text-align: right; color: #8FFF00;"> {{ trustcalc.er_carlini_wagner_attack }} </label> 
+                      </label>
+                    </div>
+                    <div class="mx-3 row">
+                      <label class="col-md-12 row"> 
+                        <label class="col-md-9" align="left"> Er Deepfool Attack:  </label> 
+                        <label class="col-md-3" style="text-align: right; color: #FF0202;">  {{ trustcalc.er_deepfool_attack }} </label> 
+                      </label>
+                    </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row card">
+    <ul class="p-5">
+      <li class="card-header">
+        Your Scenarios
+      </li>
+      <li *ngFor="let contact of trustcalc.scenarioList" style="border-bottom: 1px solid gray">
+        <div class="card-item" style="display: flex; align-items: center; justify-content: space-between;">
+          <a [routerLink]="['/maps', contact.id]">
+            <span class="mr-3" style="color: red">Name: {{ contact.scenario_name }}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="row card">
+    <ul class="p-5">
+      <li class="card-header">
+        Your Solutions
+      </li>
+      <li *ngFor="let contact of trustcalc.solutionList" style="border-bottom: 1px solid gray">
+        <div class="card-item" style="display: flex; align-items: center; justify-content: space-between;">
+          <a [routerLink]="['/icons', contact.id]">
+            <span class="mr-3" style="color: red">Name: {{ contact.solution_name }}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class=" row">
+    <div id="carouselVideoExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+      </div>
+
+      <!-- Inner -->
+      <div class="carousel-inner">
+        <!-- Single item -->
+        <div class="carousel-item active">
+          <video class="img-fluid" autoplay loop muted>
+            <source src="https://mdbcdn.b-cdn.net/img/video/Tropical.mp4" type="video/mp4" />
+          </video>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>How to use the webapp</h5>
+          </div>
+        </div>
+
+      </div>
+      <!-- Inner -->
+
+      <!-- Controls -->
+
+    </div>
+
+    <div style="margin-top: 10px;" class="col-md-12">
+      <div class="card">
+        <section>
+          <h3 class="text-center mb-4 pb-2 text-primary fw-bold">FAQ</h3>
+          <p class="text-center mb-5">
+            Find the answers for the most frequently asked questions below
+          </p>
+
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+              <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i> A simple
+                question?</h6>
+              <p>
+                <strong><u>Absolutely!</u></strong> We work with top payment companies which guarantees
+                your
+                safety and
+                security. All billing information is stored on our payment processing partner.
+              </p>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <h6 class="mb-3 text-primary"><i class="fas fa-pen-alt text-primary pe-2"></i> A question
+                that
+                is longer then the previous one?</h6>
+              <p>
+                <strong><u>Yes, it is possible!</u></strong> You can cancel your subscription anytime in
+                your
+                account. Once the subscription is
+                cancelled, you will not be charged next month.
+              </p>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <h6 class="mb-3 text-primary"><i class="fas fa-user text-primary pe-2"></i> A simple
+                question?
+              </h6>
+              <p>
+                Currently, we only offer monthly subscription. You can upgrade or cancel your monthly
+                account at any time with no further obligation.
+              </p>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i> A simple
+                question?
+              </h6>
+              <p>
+                Yes. Go to the billing section of your dashboard and update your payment information.
+              </p>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <h6 class="mb-3 text-primary"><i class="fas fa-home text-primary pe-2"></i> A simple
+                question?
+              </h6>
+              <p><strong><u>Unfortunately no</u>.</strong> We do not issue full or partial refunds for any
+                reason.</p>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i> Another
+                question that is longer than usual</h6>
+              <p>
+                Of course! We’re happy to offer a free plan to anyone who wants to try our service.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

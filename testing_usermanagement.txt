@@ -1,0 +1,59 @@
+1) Testing User Creation
+    A) Creation should work
+        i) create With Admin Dashboard testuser1
+                testuser1: created with admin dashboard
+                username:   trustcalc_testuser@proton.me
+                email:      trustcalc_testuser@proton.me
+                password:   44drmWYL4puf7C
+    
+        ii) create With API testuser2
+                testuser2: created with admin frontend
+                username:   trustcalc_testuser2@protonmail.com
+                email:      trustcalc_testuser2@protonmail.com
+                password:   g7P5nyUDGt$Y%!
+    B) Error username in use
+        i) create With Admin Dashboard testuser1 AGAOM
+                testuser1: created with admin dashboard
+                username:   trustcalc_testuser@proton.me
+                email:      trustcalc_testuser@proton.me
+                password:   44drmWYL4puf7C
+    
+        ii) create With API testuser2 AGAIN
+                testuser2: created with admin frontend
+                username:   trustcalc_testuser2@protonmail.com
+                email:      trustcalc_testuser2@protonmail.com
+                password:   g7P5nyUDGt$Y%!
+   
+2) Testing User Update
+    A) Update should work
+        i) update With Admin Dashboard testuser1
+                username:   trustcalc_testuser@proton.me -> trustcalc_testuser3@proton.me
+                email:      trustcalc_testuser@proton.me
+                password:   44drmWYL4puf7C
+    
+        ii) update With API testuser2
+                testuser2: created with admin frontend
+                username:   trustcalc_testuser2@protonmail.com
+                email:      trustcalc_testuser2@protonmail.com
+                password:   g7P5nyUDGt$Y%!
+    B) Error username in use
+        i) create With Admin Dashboard testuser1 AGAOM
+                testuser1: created with admin dashboard
+                username:   trustcalc_testuser@proton.me
+                email:      trustcalc_testuser@proton.me
+                password:   44drmWYL4puf7C
+    
+        ii) create With API testuser2 AGAIN
+                testuser2: created with admin frontend
+                username:   trustcalc_testuser2@protonmail.com
+                email:      trustcalc_testuser2@protonmail.com
+                password:   g7P5nyUDGt$Y%!
+
+
+                
+2) Testing User Update
+    A) Change teuser1 username, should work
+        trustcalc_testuser@proton.me->trustcalc2_testuser@proton.me
+
+
+3) Testin User Deletion
